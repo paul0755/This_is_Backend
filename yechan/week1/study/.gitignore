@@ -19,7 +19,8 @@ bin/
 
 ### IntelliJ IDEA ###
 .env
-.yaml
+*.yaml
+*.yml
 .idea
 *.iws
 *.iml
