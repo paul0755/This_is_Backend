@@ -1,4 +1,4 @@
-package com.backendstudy.week1.common;
+package com.backendstudy.week1.exception;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;

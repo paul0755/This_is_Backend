@@ -12,5 +12,6 @@ import lombok.NoArgsConstructor;
 @Data
 public class MemberResDto {
     private String name;
+    private Integer age;
     private String email;
 }

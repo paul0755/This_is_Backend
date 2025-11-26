@@ -1,6 +1,6 @@
 package com.backendstudy.week1.member.controller;
 
-import com.backendstudy.week1.common.ApiResponse;
+import com.backendstudy.week1.exception.ApiResponse;
 import com.backendstudy.week1.member.dto.MemberReqDto;
 import com.backendstudy.week1.member.dto.MemberResDto;
 import com.backendstudy.week1.member.service.MemberService;
@@ -26,7 +26,7 @@ public class MemberController {
 
          return ResponseEntity
                  .status(HttpStatus.CREATED)
-                 .body(ApiResponse.success(201, "회원 등록 성공", created));
+                 .body(ApiResponse.success(HttpStatus.CREATED.value(), "회원 등록 성공", created));
     }
 
     // 전체 회원 조회 or 회원 email로 조회
@@ -38,7 +38,7 @@ public class MemberController {
 
             return ResponseEntity
                     .status(HttpStatus.OK)
-                    .body(ApiResponse.success(200, "이메일로 회원 조회 성공", member));
+                    .body(ApiResponse.success(HttpStatus.OK.value(), "이메일로 회원 조회 성공", member));
         }
         else {
             List<MemberResDto> memberList = memberService.getAll();
@@ -46,7 +46,7 @@ public class MemberController {
 
             return ResponseEntity
                     .status(HttpStatus.OK)
-                    .body(ApiResponse.success(200, "전체 회원 조회 성공", memberList));
+                    .body(ApiResponse.success(HttpStatus.OK.value(), "전체 회원 조회 성공", memberList));
         }
     }
 
@@ -59,7 +59,7 @@ public class MemberController {
 
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(ApiResponse.success(200, "회원 정보 수정 성공", updated));
+                .body(ApiResponse.success(HttpStatus.OK.value(), "회원 정보 수정 성공", updated));
     }
 
     // 회원 삭제
@@ -71,6 +71,6 @@ public class MemberController {
 
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(ApiResponse.success(200, "회원 삭제 성공", null));
+                .body(ApiResponse.success(HttpStatus.OK.value(), "회원 삭제 성공", null));
     }
 }

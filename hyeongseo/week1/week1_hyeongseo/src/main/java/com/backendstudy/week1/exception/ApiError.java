@@ -1,4 +1,4 @@
-package com.backendstudy.week1.common;
+package com.backendstudy.week1.exception;
 
 import lombok.Builder;
 import lombok.Getter;
