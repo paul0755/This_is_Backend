@@ -1,8 +1,10 @@
 package com.example.study.domain.member.entity;
 
+import com.example.study.domain.comment.entity.Comment;
 import com.example.study.domain.common.BaseEntity;
 import com.example.study.domain.member.enums.Gender;
 import com.example.study.domain.member.enums.MemberStatus;
+import com.example.study.domain.post.entity.Post;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
@@ -10,6 +12,8 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @DynamicUpdate
 @DynamicInsert
@@ -51,7 +55,12 @@ public class Member extends BaseEntity {
     @Column(columnDefinition = "VARCHAR(15) DEFAULT 'ACTIVE'")
     private MemberStatus status;
 
-    // TODO: N:M 관계 생성
+
+    @OneToMany(mappedBy = "member")
+    private List<Post> posts = new ArrayList<>();
+
+    @OneToMany(mappedBy = "member")
+    private List<Comment> comments = new ArrayList<>();
 
     public void update(String name, String address, Gender gender){
         this.name = name;
